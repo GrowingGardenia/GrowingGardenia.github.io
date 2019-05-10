@@ -7,18 +7,18 @@
   
   <title>算法学习 堆栈 队列 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法讲解_极客时间 堆栈&amp;amp;队列时间： 20190510 leetcode: 20、232 、225 堆栈&amp;amp;队列查询O(n)，插入删除O(1) 常用数据结构操作时间复杂度：big O cheat sheet 题目1  leetcode 20 判断括号是否匹配 题目：12345678910111213141516171819202122232425262728Given a strin">
+  <meta name="description" content="算法讲解_极客时间 堆栈&amp;amp;队列时间： 20190510 leetcode: 20、232 、225 堆栈&amp;amp;队列查询O(n)，插入删除O(1) 常用数据结构操作时间复杂度：big O cheat sheet">
 <meta name="keywords" content="算法,堆栈&amp;队列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法学习 堆栈 队列">
 <meta property="og:url" content="http://yoursite.com/2019/05/10/算法学习-堆栈-队列/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="算法讲解_极客时间 堆栈&amp;amp;队列时间： 20190510 leetcode: 20、232 、225 堆栈&amp;amp;队列查询O(n)，插入删除O(1) 常用数据结构操作时间复杂度：big O cheat sheet 题目1  leetcode 20 判断括号是否匹配 题目：12345678910111213141516171819202122232425262728Given a strin">
+<meta property="og:description" content="算法讲解_极客时间 堆栈&amp;amp;队列时间： 20190510 leetcode: 20、232 、225 堆栈&amp;amp;队列查询O(n)，插入删除O(1) 常用数据结构操作时间复杂度：big O cheat sheet">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-10T14:52:31.206Z">
+<meta property="og:updated_time" content="2019-05-10T14:55:16.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习 堆栈 队列">
-<meta name="twitter:description" content="算法讲解_极客时间 堆栈&amp;amp;队列时间： 20190510 leetcode: 20、232 、225 堆栈&amp;amp;队列查询O(n)，插入删除O(1) 常用数据结构操作时间复杂度：big O cheat sheet 题目1  leetcode 20 判断括号是否匹配 题目：12345678910111213141516171819202122232425262728Given a strin">
+<meta name="twitter:description" content="算法讲解_极客时间 堆栈&amp;amp;队列时间： 20190510 leetcode: 20、232 、225 堆栈&amp;amp;队列查询O(n)，插入删除O(1) 常用数据结构操作时间复杂度：big O cheat sheet">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -94,6 +94,7 @@
         <h1 id="算法讲解-极客时间-堆栈-amp-队列"><a href="#算法讲解-极客时间-堆栈-amp-队列" class="headerlink" title="算法讲解_极客时间 堆栈&amp;队列"></a>算法讲解_极客时间 堆栈&amp;队列</h1><p>时间： 20190510 <br><br>leetcode: 20、232 、225</p>
 <h2 id="堆栈-amp-队列"><a href="#堆栈-amp-队列" class="headerlink" title="堆栈&amp;队列"></a>堆栈&amp;队列</h2><p>查询O(n)，插入删除O(1)</p>
 <p>常用数据结构操作时间复杂度：<a href="https://codenza.app/download/BigOCheatSheet.pdf" target="_blank" rel="noopener">big O cheat sheet</a></p>
+<a id="more"></a>
 <h2 id="题目1-leetcode-20-判断括号是否匹配"><a href="#题目1-leetcode-20-判断括号是否匹配" class="headerlink" title="题目1  leetcode 20 判断括号是否匹配"></a>题目1  leetcode 20 判断括号是否匹配</h2><ul>
 <li><strong>题目：</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Given a string containing just the characters &apos;(&apos;, &apos;)&apos;, &apos;&#123;&apos;, &apos;&#125;&apos;, &apos;[&apos; and &apos;]&apos;, determine if the input string is valid.</span><br><span class="line"></span><br><span class="line">An input string is valid if:</span><br><span class="line"></span><br><span class="line">Open brackets must be closed by the same type of brackets.</span><br><span class="line">Open brackets must be closed in the correct order.</span><br><span class="line">Note that an empty string is also considered valid.</span><br><span class="line"></span><br><span class="line">Example 1:</span><br><span class="line"></span><br><span class="line">Input: &quot;()&quot;</span><br><span class="line">Output: true</span><br><span class="line">Example 2:</span><br><span class="line"></span><br><span class="line">Input: &quot;()[]&#123;&#125;&quot;</span><br><span class="line">Output: true</span><br><span class="line">Example 3:</span><br><span class="line"></span><br><span class="line">Input: &quot;(]&quot;</span><br><span class="line">Output: false</span><br><span class="line">Example 4:</span><br><span class="line"></span><br><span class="line">Input: &quot;([)]&quot;</span><br><span class="line">Output: false</span><br><span class="line">Example 5:</span><br><span class="line"></span><br><span class="line">Input: &quot;&#123;[]&#125;&quot;</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure>
 </li>
@@ -156,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/10/算法学习-堆栈-队列/" data-id="cjvi7bbui000e40u6pivu3sds" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/10/算法学习-堆栈-队列/" data-id="cjvi7ejtw000e1ou6mdu75gwo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/堆栈-队列/">堆栈&队列</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
