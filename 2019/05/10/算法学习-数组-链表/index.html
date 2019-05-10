@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>算法学习 数组&amp;链表 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="算法讲解_极客时间 数组&amp;amp;链表时间： 20190507 - 20190510 leetcode: 206、24、141 数组特征：与内存一一对应，查找容易O(1)，插入删除复杂O(n) 链表 特征：场景：改善插入和删除操作，不知道一共多少个元素。查找复杂O(n),插入删除简单。">
+<meta name="keywords" content="算法,数组&amp;链表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习 数组&amp;链表">
+<meta property="og:url" content="http://yoursite.com/2019/05/10/算法学习-数组-链表/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="算法讲解_极客时间 数组&amp;amp;链表时间： 20190507 - 20190510 leetcode: 206、24、141 数组特征：与内存一一对应，查找容易O(1)，插入删除复杂O(n) 链表 特征：场景：改善插入和删除操作，不知道一共多少个元素。查找复杂O(n),插入删除简单。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-10T01:54:23.475Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法学习 数组&amp;链表">
+<meta name="twitter:description" content="算法讲解_极客时间 数组&amp;amp;链表时间： 20190507 - 20190510 leetcode: 206、24、141 数组特征：与内存一一对应，查找容易O(1)，插入删除复杂O(n) 链表 特征：场景：改善插入和删除操作，不知道一共多少个元素。查找复杂O(n),插入删除简单。">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-算法学习-数组-链表" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/10/算法学习-数组-链表/" class="article-date">
+  <time datetime="2019-05-10T01:50:41.000Z" itemprop="datePublished">2019-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      算法学习 数组&amp;链表
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="算法讲解-极客时间-数组-amp-链表"><a href="#算法讲解-极客时间-数组-amp-链表" class="headerlink" title="算法讲解_极客时间 数组&amp;链表"></a>算法讲解_极客时间 数组&amp;链表</h1><p>时间： 20190507 - 20190510 <br><br>leetcode: 206、24、141</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>特征：与内存一一对应，查找容易O(1)，插入删除复杂O(n)</p>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><ul>
+<li><strong>特征</strong>：<br><br>场景：改善插入和删除操作，不知道一共多少个元素。<br><br>查找复杂O(n),插入删除简单。</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><strong>操作：</strong><br><br>插入：new.next -&gt; pos;   pre.next -&gt; new;  <br><br>删除：pre.next -&gt; pos.next ; 释放pos节点</li>
+</ul>
+<p>双链表：前后指针</p>
+<h2 id="题目1-反转链表-leetcode-206"><a href="#题目1-反转链表-leetcode-206" class="headerlink" title="题目1 反转链表 leetcode#206"></a>题目1 反转链表 leetcode#206</h2><p>链表的题目不是考思维能力，更多看编程实现能力和简洁程度。</p>
+<ul>
+<li><strong>思路：</strong></li>
+</ul>
+<p>每个节点的next 指到前驱节点</p>
+<ul>
+<li><strong>实例（python）:</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def reverseList(self, head: ListNode) -&gt; ListNode:</span><br><span class="line">        cur, prev = head, None %当前节点和前驱节点</span><br><span class="line">        while cur:</span><br><span class="line">            cur.next,prev,cur = prev, cur, cur.next</span><br><span class="line">        return prev</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意逻辑清晰，记住常用语句</p>
+<h2 id="题目2-反转链表节点-leetcode-24"><a href="#题目2-反转链表节点-leetcode-24" class="headerlink" title="题目2 反转链表节点 leetcode#24"></a>题目2 反转链表节点 leetcode#24</h2><ul>
+<li><strong>思路：</strong></li>
+</ul>
+<p>设置两个变量存储进行交换的两个节点，再单独设置一个变量存储前一个节点。</p>
+<ul>
+<li><strong>实例（python）:</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def swapPairs(self, head: ListNode) -&gt; ListNode:</span><br><span class="line">        c = ListNode(1)</span><br><span class="line">        c.next = head</span><br><span class="line">        pre, pre.next = c, head</span><br><span class="line">        while pre.next and pre.next.next:</span><br><span class="line">            a = pre.next</span><br><span class="line">            b = a.next</span><br><span class="line">            pre.next,b.next,a.next = b, a, b.next</span><br><span class="line">            pre = a</span><br><span class="line">        return c.next</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="题目3-判断链表中是否有环-leetcode-141"><a href="#题目3-判断链表中是否有环-leetcode-141" class="headerlink" title="题目3 判断链表中是否有环 leetcode#141"></a>题目3 判断链表中是否有环 leetcode#141</h2><ul>
+<li><strong>思路：</strong></li>
+</ul>
+<p>1）不停取下一个节点，若无穷时间仍未结束则存在环，（问题：无穷时间如何确定）；<br>2）把访问过的节点使用集合set存起来，访问新节点时去集合中寻找看看是否能找到，能找到则存在环；<br>3）设置快慢指针，快指针每次前进两步，慢指针每次前进一步，若两个指针相遇，则存在环。</p>
+<ul>
+<li><p><strong>实例（python）:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def hasCycle(self, head):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type head: ListNode</span><br><span class="line">        :rtype: bool</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        slow = head</span><br><span class="line">        fast = head        </span><br><span class="line">        while slow and fast and fast.next:</span><br><span class="line">            slow = slow.next</span><br><span class="line">            fast = fast.next.next</span><br><span class="line">            if slow is fast:</span><br><span class="line">                return True</span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong> python中判断相等：</strong></p>
+</li>
+</ul>
+<p>python中新建变量时，并不需要指定类型，因为每个变量实际上存储的是一个引用，就是指向一个对象实体的指针。</p>
+<p>is 判断的就是这个指针的值是否相同，如果相同则表示两个变量指向同一个对象实体。而==则比较它们的内容是否相同。</p>
+<p>所以上面实例中判断两个节点相等用”is”,而不用”==”。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/10/算法学习-数组-链表/" data-id="cjvhfj2nv0003j4u65pmxa30a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组-链表/">数组&链表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/09/try-20190509/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">try 20190509</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组-链表/">数组&链表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/数组-链表/" style="font-size: 10px;">数组&链表</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/10/算法学习-数组-链表/">算法学习 数组&amp;链表</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/09/try-20190509/">try 20190509</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/28/My-First-Blog/">My First Blog</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/28/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
