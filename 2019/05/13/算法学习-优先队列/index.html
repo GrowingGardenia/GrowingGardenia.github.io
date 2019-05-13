@@ -7,18 +7,18 @@
   
   <title>算法学习 优先队列 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="算法讲解_极客时间 优先队列时间：20190513leetcode: 703、239 优先队列堆栈：FILO 队列：FIFO PriorityQueue:正常入，按照优先级出 实现机制：heap,binary search tree。（堆，二叉搜索树） 题目1 判断实时第k大的元素 leetcode#703 题目 12345678910111213141516Design a class to f">
+  <meta name="description" content="算法讲解_极客时间 优先队列时间：20190513leetcode: 703、239 优先队列堆栈：FILO 队列：FIFO PriorityQueue:正常入，按照优先级出 实现机制：heap,binary search tree。（堆，二叉搜索树）">
 <meta name="keywords" content="算法,优先队列,队列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法学习 优先队列">
 <meta property="og:url" content="http://yoursite.com/2019/05/13/算法学习-优先队列/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="算法讲解_极客时间 优先队列时间：20190513leetcode: 703、239 优先队列堆栈：FILO 队列：FIFO PriorityQueue:正常入，按照优先级出 实现机制：heap,binary search tree。（堆，二叉搜索树） 题目1 判断实时第k大的元素 leetcode#703 题目 12345678910111213141516Design a class to f">
+<meta property="og:description" content="算法讲解_极客时间 优先队列时间：20190513leetcode: 703、239 优先队列堆栈：FILO 队列：FIFO PriorityQueue:正常入，按照优先级出 实现机制：heap,binary search tree。（堆，二叉搜索树）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-13T06:41:04.856Z">
+<meta property="og:updated_time" content="2019-05-13T06:42:56.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习 优先队列">
-<meta name="twitter:description" content="算法讲解_极客时间 优先队列时间：20190513leetcode: 703、239 优先队列堆栈：FILO 队列：FIFO PriorityQueue:正常入，按照优先级出 实现机制：heap,binary search tree。（堆，二叉搜索树） 题目1 判断实时第k大的元素 leetcode#703 题目 12345678910111213141516Design a class to f">
+<meta name="twitter:description" content="算法讲解_极客时间 优先队列时间：20190513leetcode: 703、239 优先队列堆栈：FILO 队列：FIFO PriorityQueue:正常入，按照优先级出 实现机制：heap,binary search tree。（堆，二叉搜索树）">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -94,6 +94,7 @@
         <h1 id="算法讲解-极客时间-优先队列"><a href="#算法讲解-极客时间-优先队列" class="headerlink" title="算法讲解_极客时间 优先队列"></a>算法讲解_极客时间 优先队列</h1><p>时间：20190513<br>leetcode: 703、239</p>
 <h2 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a>优先队列</h2><p>堆栈：FILO <br><br>队列：FIFO <br><br>PriorityQueue:正常入，按照优先级出<br></p>
 <p>实现机制：heap,binary search tree。（堆，二叉搜索树）</p>
+<a id="more"></a>
 <h2 id="题目1-判断实时第k大的元素-leetcode-703"><a href="#题目1-判断实时第k大的元素-leetcode-703" class="headerlink" title="题目1 判断实时第k大的元素 leetcode#703"></a>题目1 判断实时第k大的元素 leetcode#703</h2><ul>
 <li><strong>题目</strong> <br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Design a class to find the kth largest element in a stream. Note that it is the kth largest element in the sorted order, not the kth distinct element.</span><br><span class="line"></span><br><span class="line">Your KthLargest class will have a constructor which accepts an integer k and an integer array nums, which contains initial elements from the stream. For each call to the method KthLargest.add, return the element representing the kth largest element in the stream.</span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line"></span><br><span class="line">int k = 3;</span><br><span class="line">int[] arr = [4,5,8,2];</span><br><span class="line">KthLargest kthLargest = new KthLargest(3, arr);</span><br><span class="line">kthLargest.add(3);   // returns 4</span><br><span class="line">kthLargest.add(5);   // returns 5</span><br><span class="line">kthLargest.add(10);  // returns 5</span><br><span class="line">kthLargest.add(9);   // returns 8</span><br><span class="line">kthLargest.add(4);   // returns 8</span><br><span class="line">Note: </span><br><span class="line">You may assume that nums&apos; length ≥ k-1 and k ≥ 1.</span><br></pre></td></tr></table></figure>
 </li>
@@ -135,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/13/算法学习-优先队列/" data-id="cjvm01ae300029gu6nf57rlzr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/05/13/算法学习-优先队列/" data-id="cjvm03onh000414u6a13xawyi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/优先队列/">优先队列</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/队列/">队列</a></li></ul>
