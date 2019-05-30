@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>算法学习 剪枝 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="算法讲解_极客时间 剪枝 时间: 20190529 - 20190530leetcode: 51、36、37">
+<meta name="keywords" content="算法,N 皇后,深度优先搜索,数独">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习 剪枝">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/算法学习-剪枝/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="算法讲解_极客时间 剪枝 时间: 20190529 - 20190530leetcode: 51、36、37">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-30T08:05:06.110Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="算法学习 剪枝">
+<meta name="twitter:description" content="算法讲解_极客时间 剪枝 时间: 20190529 - 20190530leetcode: 51、36、37">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-算法学习-剪枝" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/算法学习-剪枝/" class="article-date">
+  <time datetime="2019-05-30T07:59:04.000Z" itemprop="datePublished">2019-05-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/算法/">算法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      算法学习 剪枝
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>算法讲解_极客时间 剪枝</p>
+<p>时间: 20190529 - 20190530<br><br>leetcode: 51、36、37</p>
+<a id="more"></a>
+<h2 id="题目1：N-皇后问题-leetcode-51"><a href="#题目1：N-皇后问题-leetcode-51" class="headerlink" title="题目1：N 皇后问题 leetcode#51"></a>题目1：N 皇后问题 leetcode#51</h2><ul>
+<li><strong>题目</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.</span><br><span class="line"></span><br><span class="line">Given an integer n, return all distinct solutions to the n-queens puzzle.</span><br><span class="line"></span><br><span class="line">Each solution contains a distinct board configuration of the n-queens&apos; placement, where &apos;Q&apos; and &apos;.&apos; both indicate a queen and an empty space respectively.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。</span><br><span class="line"></span><br><span class="line">给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。</span><br><span class="line"></span><br><span class="line">每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 &apos;Q&apos; 和 &apos;.&apos; 分别代表了皇后和空位。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>思路</strong></li>
+</ul>
+<p>深度优先搜索，每一层是深度，第n层结束。每一层中枚举皇后放在哪个位置<br><br>1）可以暴力搜索当前位置的行列及斜边是否被占领；<br><br>2）也可以采用剪枝搜索的方式，使用数组存储行、列、撇捺，判断没有冲突的话占领该格。</p>
+<ul>
+<li><p><strong>实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 参考视频实例</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def solveNQueens(self, n: int) -&gt; List[List[str]]:</span><br><span class="line">        if n &lt; 1: return []</span><br><span class="line">        self.n = n</span><br><span class="line">        self.result = []</span><br><span class="line">        self._dfs([], [], [])</span><br><span class="line">        return [[&quot;.&quot;*i + &quot;Q&quot; +&quot;.&quot;*(n-i-1) for i in queues] for queues in self.result]</span><br><span class="line">    </span><br><span class="line">    def _dfs(self, queens, pie, na):</span><br><span class="line">        numQ = len(queens)</span><br><span class="line">        if numQ &gt;= self.n:</span><br><span class="line">            self.result.append(queens)</span><br><span class="line">            return </span><br><span class="line">        for i in range(self.n):</span><br><span class="line">            if i not in queens and i+numQ not in pie and i-numQ not in na:</span><br><span class="line">                self._dfs(queens+[i], pie+[i+numQ],na+[i-numQ])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>结果</strong></p>
+</li>
+</ul>
+<p>执行用时 : 84 ms, 在N-Queens的Python3提交中击败了90.03% 的用户<br><br>内存消耗 : 13.2 MB, 在N-Queens的Python3提交中击败了97.69% 的用户</p>
+<h2 id="题目2-数独判断问题-leetcode-36"><a href="#题目2-数独判断问题-leetcode-36" class="headerlink" title="题目2 数独判断问题 leetcode 36"></a>题目2 数独判断问题 leetcode 36</h2><ul>
+<li><strong>题目</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:</span><br><span class="line"></span><br><span class="line">Each row must contain the digits 1-9 without repetition.</span><br><span class="line">Each column must contain the digits 1-9 without repetition.</span><br><span class="line">Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.</span><br><span class="line"></span><br><span class="line">A partially filled sudoku which is valid.</span><br><span class="line"></span><br><span class="line">The Sudoku board could be partially filled, where empty cells are filled with the character &apos;.&apos;.</span><br><span class="line"></span><br><span class="line">Example 1:</span><br><span class="line"></span><br><span class="line">Input:</span><br><span class="line">[</span><br><span class="line">  [&quot;5&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;9&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;3&quot;],</span><br><span class="line">  [&quot;4&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;],</span><br><span class="line">  [&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;8&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;]</span><br><span class="line">]</span><br><span class="line">Output: true</span><br><span class="line">Example 2:</span><br><span class="line"></span><br><span class="line">Input:</span><br><span class="line">[</span><br><span class="line">  [&quot;8&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;9&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;3&quot;],</span><br><span class="line">  [&quot;4&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;],</span><br><span class="line">  [&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;8&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;]</span><br><span class="line">]</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Same as Example 1, except with the 5 in the top left corner being </span><br><span class="line">    modified to 8. Since there are two 8&apos;s in the top left 3x3 sub-box, it is invalid.</span><br><span class="line">Note:</span><br><span class="line"></span><br><span class="line">A Sudoku board (partially filled) could be valid but is not necessarily solvable.</span><br><span class="line">Only the filled cells need to be validated according to the mentioned rules.</span><br><span class="line">The given board contain only digits 1-9 and the character &apos;.&apos;.</span><br><span class="line">The given board size is always 9x9.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。</span><br><span class="line"></span><br><span class="line">数字 1-9 在每一行只能出现一次。</span><br><span class="line">数字 1-9 在每一列只能出现一次。</span><br><span class="line">数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">上图是一个部分填充的有效的数独。</span><br><span class="line"></span><br><span class="line">数独部分空格内已填入了数字，空白格用 &apos;.&apos; 表示。</span><br><span class="line"></span><br><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">[</span><br><span class="line">  [&quot;5&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;9&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;3&quot;],</span><br><span class="line">  [&quot;4&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;],</span><br><span class="line">  [&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;8&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;]</span><br><span class="line">]</span><br><span class="line">输出: true</span><br><span class="line">示例 2:</span><br><span class="line"></span><br><span class="line">输入:</span><br><span class="line">[</span><br><span class="line">  [&quot;8&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;9&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;3&quot;],</span><br><span class="line">  [&quot;4&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;],</span><br><span class="line">  [&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;8&quot;,&quot;.&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;],</span><br><span class="line">  [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;]</span><br><span class="line">]</span><br><span class="line">输出: false</span><br><span class="line">解释: 除了第一行的第一个数字从 5 改为 8 以外，空格内其他数字均与 示例1 相同。</span><br><span class="line">     但由于位于左上角的 3x3 宫内有两个 8 存在, 因此这个数独是无效的。</span><br><span class="line">说明:</span><br><span class="line"></span><br><span class="line">一个有效的数独（部分已被填充）不一定是可解的。</span><br><span class="line">只需要根据以上规则，验证已经填入的数字是否有效即可。</span><br><span class="line">给定数独序列只包含数字 1-9 和字符 &apos;.&apos; 。</span><br><span class="line">给定数独永远是 9x9 形式的。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>思路</strong></li>
+</ul>
+<p>1）使用两层for循环，分别检查行、列、小的block</p>
+<ul>
+<li><p><strong>实例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isValidSudoku(self, board: List[List[str]]) -&gt; bool:</span><br><span class="line"></span><br><span class="line">        block = [[] for i in range(9)]</span><br><span class="line">        col = [[] for i in range(9)]</span><br><span class="line">        row = [[] for i in range(9)]</span><br><span class="line">        for i in range(9):</span><br><span class="line">            for j in range(9):     </span><br><span class="line">                if board[i][j] != &apos;.&apos;:</span><br><span class="line">                    col[i].append(board[i][j])</span><br><span class="line">                    row[j].append(board[i][j])</span><br><span class="line">                    block[3*(i//3) + j//3].append(board[i][j])</span><br><span class="line">        for i in range(9):</span><br><span class="line">            if len(set(col[i]))&lt;len(col[i]) or len(set(row[i])) &lt; len(row[i]) or len(set(block[i]))&lt;len(block[i]):</span><br><span class="line">                return False</span><br><span class="line">        return True</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>结果</strong></p>
+</li>
+</ul>
+<p>执行用时 : 68 ms, 在Valid Sudoku的Python3提交中击败了85.58% 的用户<br>内存消耗 : 13.1 MB, 在Valid Sudoku的Python3提交中击败了79.48% 的用户</p>
+<ul>
+<li><strong>分析</strong></li>
+</ul>
+<p>评论中的官方解题答案用到了map的数据结构，直接统计数字在行、列、小矩阵中的出现次数，并且在每个数据添加后就判断是否合法，遇到非法情况能够更早的返回，节省时间。而自己写的需要全部遍历，并且最后进行转换比较长度的做法对于时间控制也不是很好。</p>
+<p>本题发现了自己对二层列表的不熟练，需要加强。</p>
+<h2 id="题目3-数独搜索问题-leetcode-37"><a href="#题目3-数独搜索问题-leetcode-37" class="headerlink" title="题目3 数独搜索问题 leetcode 37"></a>题目3 数独搜索问题 leetcode 37</h2><ul>
+<li><strong>题目</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Write a program to solve a Sudoku puzzle by filling the empty cells.</span><br><span class="line"></span><br><span class="line">A sudoku solution must satisfy all of the following rules:</span><br><span class="line"></span><br><span class="line">Each of the digits 1-9 must occur exactly once in each row.</span><br><span class="line">Each of the digits 1-9 must occur exactly once in each column.</span><br><span class="line">Each of the the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.</span><br><span class="line">Empty cells are indicated by the character &apos;.&apos;.</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line"></span><br><span class="line">The given board contain only digits 1-9 and the character &apos;.&apos;.</span><br><span class="line">You may assume that the given Sudoku puzzle will have a single unique solution.</span><br><span class="line">The given board size is always 9x9.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">编写一个程序，通过已填充的空格来解决数独问题。</span><br><span class="line"></span><br><span class="line">一个数独的解法需遵循如下规则：</span><br><span class="line"></span><br><span class="line">数字 1-9 在每一行只能出现一次。</span><br><span class="line">数字 1-9 在每一列只能出现一次。</span><br><span class="line">数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。</span><br><span class="line">空白格用 &apos;.&apos; 表示。</span><br><span class="line"></span><br><span class="line">Note:</span><br><span class="line"></span><br><span class="line">给定的数独序列只包含数字 1-9 和字符 &apos;.&apos; 。</span><br><span class="line">你可以假设给定的数独只有唯一解。</span><br><span class="line">给定数独永远是 9x9 形式的。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>思路</strong></li>
+</ul>
+<p>1）朴素DFS：每个格子  枚举1到9 ，检查是否合法，合法继续，不合法返回。</p>
+<p>2）剪枝加速：<br><br>a. 从选项少的开始，减少总体的搜索空间。<br><br>b. 预处理:遍历棋盘，对每个格子的可选数列出来，根据可选数个数排序，先搜索可选数较少的格子<br><br>c. 用高级的数据结构：DancingLink</p>
+<ul>
+<li><strong>实例</strong></li>
+</ul>
+<p>无优化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># 参考视频实例</span><br><span class="line">class Solution:</span><br><span class="line">    def solveSudoku(self, board: List[List[str]]) -&gt; None:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Do not return anything, modify board in-place instead.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        self.solve(board)</span><br><span class="line">        </span><br><span class="line">    def solve(self, board):</span><br><span class="line">        for i in range(9):</span><br><span class="line">            for j in range(9):</span><br><span class="line">                if board[i][j] == &apos;.&apos;:</span><br><span class="line">                    for k in range(9):</span><br><span class="line">                        c = str(k + 1)</span><br><span class="line">                        if self.isValid(board, i, j, c):</span><br><span class="line">                            board[i][j] = c</span><br><span class="line">                            if self.solve(board):</span><br><span class="line">                                return True</span><br><span class="line">                            board[i][j] = &apos;.&apos;</span><br><span class="line">                    return False</span><br><span class="line">        return True</span><br><span class="line">    def isValid(self, board, row, col, c):</span><br><span class="line">        for i in range(9):</span><br><span class="line">            if board[row][i] == c :return False</span><br><span class="line">            if board[i][col] == c: return False</span><br><span class="line">            if board[row//3 *3 + i//3][col//3 * 3 + i%3] == c: return False</span><br><span class="line">        return True</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>结果</strong></li>
+</ul>
+<p>无优化：</p>
+<p>执行用时 : 1120 ms, 在Sudoku Solver的Python3提交中击败了15.77% 的用户<br><br>内存消耗 : 12.9 MB, 在Sudoku Solver的Python3提交中击败了97.83% 的用户</p>
+<hr>
+<p>说明：</p>
+<p>本系列笔记是根据极客时间课程整理而成，更多细节及详细内容可购买课程学习。</p>
+<p>如有侵权，麻烦联系”<a href="mailto:wltianyuxue@126.com" target="_blank" rel="noopener">wltianyuxue@126.com</a>“。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/30/算法学习-剪枝/" data-id="cjwadivf7001308u6w4i09bx7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/N-皇后/">N 皇后</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数独/">数独</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/深度优先搜索/">深度优先搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/28/算法学习-深度-广度优先遍历/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">算法学习 深度 广度优先遍历</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/N-皇后/">N 皇后</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/map-set/">map & set</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二叉树/">二叉树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/优先队列/">优先队列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分治/">分治</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客命令/">博客命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/堆栈-队列/">堆栈&队列</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/广度优先搜索/">广度优先搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数独/">数独</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组-链表/">数组&链表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/映射-集合/">映射&集合</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深度优先搜索/">深度优先搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/股票问题/">股票问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心算法/">贪心算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递归/">递归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/队列/">队列</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/N-皇后/" style="font-size: 10px;">N 皇后</a> <a href="/tags/map-set/" style="font-size: 10px;">map & set</a> <a href="/tags/二叉树/" style="font-size: 15px;">二叉树</a> <a href="/tags/优先队列/" style="font-size: 10px;">优先队列</a> <a href="/tags/分治/" style="font-size: 10px;">分治</a> <a href="/tags/博客命令/" style="font-size: 10px;">博客命令</a> <a href="/tags/堆栈-队列/" style="font-size: 10px;">堆栈&队列</a> <a href="/tags/广度优先搜索/" style="font-size: 10px;">广度优先搜索</a> <a href="/tags/数独/" style="font-size: 10px;">数独</a> <a href="/tags/数组-链表/" style="font-size: 10px;">数组&链表</a> <a href="/tags/映射-集合/" style="font-size: 10px;">映射&集合</a> <a href="/tags/树/" style="font-size: 15px;">树</a> <a href="/tags/深度优先搜索/" style="font-size: 15px;">深度优先搜索</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/股票问题/" style="font-size: 10px;">股票问题</a> <a href="/tags/贪心算法/" style="font-size: 10px;">贪心算法</a> <a href="/tags/递归/" style="font-size: 10px;">递归</a> <a href="/tags/队列/" style="font-size: 10px;">队列</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/算法学习-剪枝/">算法学习 剪枝</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/28/算法学习-深度-广度优先遍历/">算法学习 深度 广度优先遍历</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/17/算法学习-贪心算法/">算法学习 贪心算法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/17/算法学习-二叉树遍历-递归-分治/">算法学习 二叉树遍历 递归 分治</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/15/算法学习-二叉树/">算法学习 二叉树</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
